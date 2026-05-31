@@ -20,6 +20,17 @@ service:
                   branch: main
               skipResourceVersioning: false
               enableDeclarativeRollback: false
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: onoarding_pipeline_artifactory
+                imagePath: vanshajb10/hey-vanshaj
+                tag: <+input>
+                digest: ""
+              identifier: HeustuArtifact
+              type: DockerRegistry
   gitOpsEnabled: false
   orgIdentifier: default
   projectIdentifier: default_project
