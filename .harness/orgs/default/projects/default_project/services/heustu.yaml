@@ -1,0 +1,25 @@
+service:
+  name: ServiceManifest
+  identifier: ServiceManifest
+  serviceDefinition:
+    type: Kubernetes
+    spec:
+      manifests:
+        - manifest:
+            identifier: HeustuServiceK8sManifest
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: github_connector_for_whole_account
+                  gitFetchType: Branch
+                  paths:
+                    - manifests/k8sManifest.manifest
+                  repoName: heustu
+                  branch: main
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+  gitOpsEnabled: false
+  orgIdentifier: default
+  projectIdentifier: default_project
