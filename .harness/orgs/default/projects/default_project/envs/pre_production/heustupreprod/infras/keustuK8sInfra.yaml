@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: keustuK8sInfra
+  identifier: keustuK8sInfra
+  orgIdentifier: default
+  projectIdentifier: default_project
+  environmentRef: heustupreprod
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: heustu_K8s_Connector
+    namespace: heustu-preprod
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
