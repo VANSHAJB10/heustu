@@ -43,16 +43,14 @@ pipeline:
                   identifier: canaryDeployment
                   steps:
                     - step:
-                        name: Canary Deployment
-                        identifier: canaryDeployment
-                        type: K8sCanaryDeploy
-                        timeout: 10m
+                        type: K8sRollout
+                        name: K8sRollout
+                        identifier: K8sRollout
                         spec:
-                          instanceSelection:
-                            spec:
-                              percentage: 50
-                            type: Percentage
-                          skipDryRun: false
+                          command: pause
+                          resources:
+                            type: ReleaseName
+                        timeout: 2m
                     - step:
                         name: Canary Delete
                         identifier: canaryDelete
@@ -71,6 +69,16 @@ pipeline:
                         spec:
                           skipDryRun: false
                           pruningEnabled: false
+              - step:
+                  type: Email
+                  name: Email for Success
+                  identifier: Email_for_Success
+                  spec:
+                    to: vanshajbajaj1002@gmail.com
+                    cc: ""
+                    subject: "Deploy Pipeline "
+                    body: "The CD-Deploy Pipeline has been successful "
+                  timeout: 10m
             rollbackSteps:
               - step:
                   name: Canary Delete
