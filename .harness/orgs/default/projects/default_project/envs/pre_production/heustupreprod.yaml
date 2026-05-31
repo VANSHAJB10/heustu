@@ -1,0 +1,8 @@
+environment:
+  name: heustu-preprod
+  identifier: heustupreprod
+  description: ""
+  tags: {}
+  type: PreProduction
+  orgIdentifier: default
+  projectIdentifier: default_project
