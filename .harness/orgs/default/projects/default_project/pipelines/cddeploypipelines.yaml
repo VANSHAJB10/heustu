@@ -51,12 +51,6 @@ pipeline:
                           resources:
                             type: ReleaseName
                         timeout: 2m
-                    - step:
-                        name: Canary Delete
-                        identifier: canaryDelete
-                        type: K8sCanaryDelete
-                        timeout: 10m
-                        spec: {}
               - stepGroup:
                   name: Primary Deployment
                   identifier: primaryDeployment
