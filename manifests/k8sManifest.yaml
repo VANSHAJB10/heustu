@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: vanshaj-greeting
-          image: vanshajb10/hey-me:latest
+          image: vanshajb10/hey-me:1
           ports:
             - containerPort: 80
           resources:
