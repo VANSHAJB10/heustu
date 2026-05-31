@@ -47,7 +47,7 @@ pipeline:
                         name: K8sRollout
                         identifier: K8sRollout
                         spec:
-                          command: pause
+                          command: resume
                           resources:
                             type: ReleaseName
                         timeout: 2m
